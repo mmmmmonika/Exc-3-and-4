@@ -142,7 +142,13 @@ class ProfilesVC: BaseViewController {
                     self._activateProfile.on(.next(id))
                 case .addNewProfileItem:
                     print("tap on command add new")
-                    self._addNewProfile.on(.next(()))
+// Quest 3
+                if self._viewModel.profilesMaxCountReached() {
+                    self.showAlert()
+                    return
+                }
+                
+                self._addNewProfile.on(.next(()))
             }
             self._profileList.deselectRow(at: indexPath, animated: true)
         }).disposed(by: _disposeBag)
@@ -172,6 +178,17 @@ class ProfilesVC: BaseViewController {
                 self._profilesModel.on(.next(self.dataModel(with: lst)))
             }
         }.disposed(by: _disposeBag)
+    }
+
+// Quest 3
+    private func showAlert() {
+        let alert = UIAlertController(title: Strings.Profiles.addNewAlertTitle,
+                                      message: Strings.Profiles.addNewAlertText,
+                                      preferredStyle: .alert)
+               
+        alert.addAction(UIAlertAction(title: Strings.Profiles.okButton,
+                                    style: .default))
+        present(alert, animated: true)
     }
 
 }

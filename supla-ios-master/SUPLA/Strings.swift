@@ -61,6 +61,9 @@ struct Strings {
         static let tapMessage = NSLocalizedString("Tap the account to log in.", comment: "")
         static let addNew = NSLocalizedString("Add new", comment: "add new profile")
         static let activeIndicator = NSLocalizedString("active", comment: "indicator for active profile")
+        static let addNewAlertTitle = NSLocalizedString("Stop", comment: "alert title for adding more than 3 account")
+        static let addNewAlertText = NSLocalizedString("You cannot add more than 3 account", comment: "alert text for adding more than 3 account")
+        static let okButton = NSLocalizedString("OK", comment: "ok button for alert")
 
         static let defaultProfileName = NSLocalizedString("Default", comment: "name for default profile")
         static let delete = NSLocalizedString("Delete account", comment: "button label to delete profile")
